@@ -1,0 +1,15 @@
+[Unit]
+Description=Expense Tracker Telegram Bot
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/expense_tracker_bot
+ExecStart=/root/expense_tracker_bot/venv/bin/python bot.py
+Restart=always
+RestartSec=10
+EnvironmentFile=/root/expense_tracker_bot/.env
+
+[Install]
+WantedBy=multi-user.target

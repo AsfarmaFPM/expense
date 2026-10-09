@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  expense_bot:
+    build: .
+    container_name: expense_tracker_bot
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - DATA_DIR=/app/data
+    volumes:
+      # Data directory persistence for database and reports
+      - ./data:/app/data
